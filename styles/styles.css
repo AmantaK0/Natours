@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inconsolata:wght@300&family=Lato:wght@300;400&family=League+Script&family=Lora&family=Merriweather+Sans:wght@300&family=Noto+Sans&family=Parisienne&family=Poppins:wght@100;300&family=Roboto+Mono:wght@300;400&family=Roboto:wght@300&family=Work+Sans:wght@300&display=swap');
+
+@media screen and (max-width: 75em){
+    html {
+        font-size: 50%;
+    }
+}
+
+body{
+    box-sizing: border-box;
+    padding: 2rem;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.7;
+    color: #777;
+}
+
+*, 
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+.menu-icon{
+    background-color: #fff;
+    position: fixed;
+    top: 0.3rem;
+    right: 0.3rem;
+    cursor: pointer;
+    padding: 2.2rem 1.8rem;
+    z-index: 3;
+    border-radius: 50%;
+    margin: 4%;
+}
+
+.navigation input{
+    display: none;
+}
+
+.menu-icon .bar{
+    width: 1.75rem;
+    height: 0.1rem;
+    background-color: #000;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease-out;
+}
+
+.menu-icon .bar::before{
+    content: "";
+    width: 1.75rem;
+    height: 0.1rem;
+    background-color: #000;
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    transition: all 0.3s;
+}
+
+.menu-icon .bar::after{
+    content: "";
+    width: 1.75rem;
+    height: 0.1rem;
+    background-color: #000;
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    transition: all 0.3s;
+}
+
+.navigation input:checked~ .menu-icon .bar{
+    background-color: transparent;
+}
+
+.navigation input:checked~ .menu-icon .bar::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.navigation input:checked~ .menu-icon .bar::after{
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.navigation .menu{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #55c57a;
+    z-index: 2;
+    transform: scale(0);
+    opacity: 0;
+    transition: .3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.navigation .menu span{
+    display: inline-block;
+    margin-right: 1.5rem;
+}
+
+.navigation .menu ul{
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+}
+
+.navigation .menu ul li{
+    list-style: none;
+}
+
+.navigation .menu ul li a{
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1.25rem 0.3rem;
+    position: relative;
+}
+
+.navigation .menu ul li a:hover{
+    box-shadow: inset 300px 0 0 0 #fff;
+    transition: ease-out 0.4s;
+    color: #55c57a;
+}
+
+.navigation .menu ul li a::after{
+    content: "";
+    position: absolute;
+}
+
+.navigation input:checked~ .menu{
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+.navigation input:checked~ .menu ul{
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: 0.1s;
+}
+
+
+/*HEADERPART*/
+
+.header{
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba(126,213,111,0.8), rgba(40,180,133,0.8)),url("/img/taskImg.jpg");
+    background-size: cover;
+    background-position: top;
+    position: relative;
+}
+
+.header .headerLogo{
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+.header .headerLogo .logo{
+    height: 2rem;
+}
+
+.header .headerText{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.header .headerText .texts{
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 6rem;
+}
+
+.header .headerText .texts .firstText{
+        display: block;
+        font-size: 3.3rem;
+        font-weight: 400;
+        letter-spacing: 2rem;
+}
+
+.header .headerText .texts .secondText{
+        display: block;
+        font-size: 1rem;
+        font-weight: 900;
+        letter-spacing: 1rem;
+}
+
+.header .headerText .button{
+    background-color: #fff;
+    color: #777;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    display: inline-block;
+    border-radius: 10rem;
+    position: relative;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.header .headerText .button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header .headerText .button::after{
+    content: "";
+    background-color: #fff;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.header .headerText .button:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+@media screen and (max-width: 300px){
+    .texts .firstText{
+        font-size: 10px;
+        display: block;
+    }
+
+    .texts .secondText{
+        width: 80%;
+        font-size: 17px;
+    }
+}
+
+/*most popular tours*/
+
+.flipping-cards{
+    background-color: #f7f7f7;
+    padding: 25rem 0 15rem 0;
+    margin-top: -10rem;
+}
+
+.center-text{
+    margin-bottom: 8rem !important;
+    text-align: center !important;
+}
+
+.heading-secondary{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    color: #7ed56f;
+    letter-spacing: .2rem;
+    transition: all .2s;
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item1{
+    flex: 33.3%;
+    padding: 1rem;
+}
+.flex-item2{
+    flex: 33.3%;
+    padding: 1rem;
+}
+.flex-item3{
+    flex: 33.3%;
+    padding: 1rem;
+}
+
+.flip-card {
+    position: relative;
+    height: 52rem;
+    perspective: 150rem;
+}
+  
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #fff;
+    color: black;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+    border-radius: 3px;
+}
+
+.picture1{
+    background-image: linear-gradient(to right bottom, #ffb900, #ff7730),url("/img/card1.jpg");
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.picture2{
+    background-image: linear-gradient(to right bottom, #7ed56f, #28b485),url("/img/cardImg2.jpg");
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.picture3{
+    background-image: linear-gradient(to right bottom, #2998ff, #5643fa),url("/img/cardImg3.jpg");
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.heading{
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: #fff;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+}
+
+.card-heading1{
+    background-image: linear-gradient(to right bottom, rgba(255,185,0,0.85), rgba(255,119,48,0.85));
+    padding: 1rem 1.5rem;
+}
+
+.card-heading2{
+    background-image: linear-gradient(to right bottom, rgba(126,213,111,0.85), rgba(40,180,133,0.85));
+    padding: 1rem 1.5rem;
+}
+
+.card-heading3{
+    background-image: linear-gradient(to right bottom, rgba(41,152,255,0.85), rgba(86,67,250,0.85));
+    padding: 1rem 1.5rem;
+}
+
+.card-details{
+    padding: 3rem;
+    background-color: #fff;
+}
+
+.card-details ul{
+    list-style: none;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.card-details ul li:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+.card-details ul li{
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.flip-card-back1 {
+    background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
+    color: white;
+    transform: rotateY(180deg);
+    height: 52rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+}
+
+.flip-card-back2 {
+    background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+    color: white;
+    transform: rotateY(180deg);
+    height: 52rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+}
+
+.flip-card-back3 {
+    background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
+    color: white;
+    transform: rotateY(180deg);
+    height: 52rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+}
+
+.card-cta{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+}
+
+.price-box{
+    text-align: center;
+    color: #fff;
+    margin-bottom: 8rem;
+}
+
+.price-box .only{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.price-box .price{
+    font-size: 6rem;
+    font-weight: 100;
+}
+
+.card-cta .button{
+    background-color: #fff;
+    color: #777;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    position: relative;
+    font-size: 1.6rem;
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.card-cta .button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-cta .button::after{
+    content: "";
+    background-color: #fff;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.card-cta .button:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+@media (max-width: 800px) {
+.flex-item1, .flex-item2, .flex-item3 {
+    flex: 100%;
+}
+}
